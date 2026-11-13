@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impress Beauty Club</title>
+<meta name="description" content="">
+<meta name="theme-color" content="#2E1627">
+<meta property="og:title" content="Impress Beauty Club">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232E1627'/%3E%3Cpath d='M9 27V14a7 7 0 0 1 14 0v13z' fill='%23EBCDD5' stroke='%23B4935A' stroke-width='1.5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600&family=Noto+Serif+Georgian:wght@400;500;600&family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Georgian:wght@400;600;700&display=swap">
+<style>
+:root{
+  --powder:#F6EEF0;
+  --paper:#FFFAFB;
+  --ink:#2E1627;
+  --plum:#4A2140;
+  --rose:#B8325A;
+  --blush:#EBCDD5;
+  --brass:#B4935A;
+  --soft:#6E5566;
+  --body:"Noto Sans","Noto Sans Georgian",system-ui,sans-serif;
+  --head:"Noto Serif","Noto Serif Georgian",Georgia,serif;
+  --wrap:min(1140px, 100% - 2.5rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+*{margin:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);font-size:1.0625rem;line-height:1.65;color:var(--ink);background:var(--powder)}
+img,iframe,svg{display:block;max-width:100%}
+a{color:inherit}
+ul,ol{padding:0;list-style:none}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--rose);outline-offset:3px;border-radius:4px}
+.wrap{width:var(--wrap);margin-inline:auto}
+section[id]{scroll-margin-top:84px}
+.h2{font:500 clamp(2rem,4.6vw,3.25rem)/1.15 var(--head);letter-spacing:-.01em;text-wrap:balance}
+.lede{color:var(--soft);max-width:52ch;margin-top:.8rem}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:.75rem 1.6rem;font:700 1rem/1.2 var(--body);text-decoration:none;border-radius:999px;border:1.5px solid transparent;background:none;transition:background-color .15s,color .15s,border-color .15s}
+.btn--rose{background:var(--rose);color:#fff}
+.btn--rose:hover{background:#9E2749}
+.btn--line{border-color:var(--ink);color:var(--ink)}
+.btn--line:hover{background:var(--ink);color:var(--powder)}
+.btn--light{border-color:var(--blush);color:var(--powder)}
+.btn--light:hover{background:var(--powder);color:var(--ink)}
+.btn--sm{min-height:42px;padding:.5rem 1.2rem;font-size:.95rem}
+
+.demo{background:var(--ink);color:var(--blush);font-size:.86rem;text-align:center;padding:.45rem 1rem}
+
+/* header */
+.top{position:sticky;top:0;z-index:20;background:rgba(246,238,240,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--blush)}
+.top__in{display:flex;align-items:center;gap:1.4rem;min-height:68px}
+.brand{font:500 1.5rem/1 var(--head);text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.brand small{display:block;font:600 .68rem/1 var(--body);letter-spacing:.22em;color:var(--rose);margin-top:.3rem}
+.top__nav{display:flex;gap:1.5rem;margin-left:auto}
+.top__nav a{text-decoration:none;font-size:.96rem;color:var(--soft)}
+.top__nav a:hover{color:var(--ink)}
+.lang{display:flex;border:1px solid var(--blush);border-radius:999px;padding:2px;background:var(--paper)}
+.lang button{border:0;background:none;border-radius:999px;min-width:40px;min-height:34px;font-size:.8rem;font-weight:700;color:var(--soft)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--powder)}
+@media (max-width:980px){.top__nav{display:none}.lang{margin-left:auto}}
+@media (max-width:560px){.top .btn{display:none}}
+
+/* hero */
+.hero__in{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(1.5rem,5vw,5rem);align-items:center;padding-block:clamp(2.5rem,7vw,6rem)}
+.status{display:inline-flex;align-items:center;gap:.55rem;font-size:.93rem;font-weight:600;padding:.35rem .95rem;border-radius:999px;background:var(--paper);border:1px solid var(--blush)}
+.status i{width:9px;height:9px;border-radius:50%;background:#3FA66B}
+.status.is-closed i{background:#C9574E}
+.hero h1{margin-top:1.3rem;font:500 clamp(2.9rem,8.2vw,6.4rem)/.98 var(--head);letter-spacing:-.025em}
+.hero__kind{margin-top:1.1rem;font:500 clamp(1.15rem,2.2vw,1.5rem)/1.3 var(--head);color:var(--rose)}
+.hero__lede{max-width:40ch;margin-top:1rem;font-size:clamp(1.05rem,1.6vw,1.18rem);color:var(--soft)}
+.hero__cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.mirror{position:relative;justify-self:end;width:min(100%,400px)}
+.mirror__glass{aspect-ratio:4/5.4;border-radius:999px 999px 14px 14px;border:5px solid var(--brass);overflow:hidden;
+  background:
+    radial-gradient(120% 70% at 20% 8%, rgba(255,255,255,.85), rgba(255,255,255,0) 55%),
+    linear-gradient(118deg, rgba(255,255,255,0) 38%, rgba(255,255,255,.4) 46%, rgba(255,255,255,0) 54%),
+    linear-gradient(170deg, #F3DCE2 0%, #E2B7C4 48%, #B98AA3 100%);
+  box-shadow:0 30px 60px -30px rgba(46,22,39,.55), inset 0 0 0 6px rgba(255,255,255,.35)}
+.mirror__glass img{width:100%;height:100%;object-fit:cover}
+.mirror__tag{position:absolute;left:-14px;bottom:34px;background:var(--ink);color:var(--powder);border-radius:14px;padding:.9rem 1.15rem;text-decoration:none;box-shadow:0 14px 30px -14px rgba(46,22,39,.7)}
+.mirror__tag b{display:block;font:500 2.1rem/1 var(--head)}
+.mirror__tag span{display:block;font-size:.84rem;color:var(--blush);margin-top:.3rem}
+@media (max-width:820px){
+  .hero__in{grid-template-columns:1fr}
+  .mirror{justify-self:center;width:min(78%,320px);order:-1}
+  .mirror__glass{aspect-ratio:4/4.3}
+  .mirror__tag{left:-10px;bottom:22px}
+}
+
+/* facts */
+.facts{background:var(--ink);color:var(--powder)}
+.facts__in{display:grid;grid-template-columns:repeat(4,1fr)}
+.facts__in>div{padding:1.4rem 1.4rem 1.5rem;border-left:1px solid rgba(235,205,213,.18)}
+.facts__in>div:first-child{border-left:0;padding-left:0}
+.facts dt{font-size:.84rem;color:var(--blush)}
+.facts dd{font-size:1.05rem;font-weight:600;line-height:1.35;margin-top:.25rem}
+.facts dd a{text-decoration:none}
+.facts dd a:hover{text-decoration:underline}
+@media (max-width:860px){
+  .facts__in{grid-template-columns:1fr 1fr}
+  .facts__in>div{padding:1.1rem 1rem}
+  .facts__in>div:nth-child(odd){border-left:0;padding-left:0}
+  .facts__in>div:nth-child(n+3){border-top:1px solid rgba(235,205,213,.18)}
+}
+
+/* services */
+.services{padding-block:clamp(3.5rem,8vw,6.5rem)}
+.tabs{display:flex;gap:.5rem;margin-top:2rem;overflow-x:auto;padding-bottom:.4rem;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;border:1.5px solid var(--blush);background:var(--paper);border-radius:999px;padding:.6rem 1.3rem;font-weight:700;font-size:.98rem;color:var(--soft)}
+.tabs button[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--powder)}
+.panel{margin-top:1.4rem;background:var(--paper);border:1px solid var(--blush);border-radius:18px;padding:clamp(1.2rem,3.5vw,2.6rem)}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:0 3.5rem}
+.menu li{display:grid;grid-template-columns:1fr auto;gap:.2rem 1rem;padding:1.05rem 0;border-bottom:1px solid var(--blush)}
+.menu__name{font-weight:700;font-size:1.08rem;line-height:1.35}
+.menu__price{font:500 1.3rem/1.2 var(--head);color:var(--rose);white-space:nowrap}
+.menu__desc{grid-column:1/-1;font-size:.93rem;color:var(--soft)}
+.panel__foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;margin-top:1.6rem}
+.panel__foot p{font-size:.92rem;color:var(--soft)}
+@media (max-width:760px){.menu{grid-template-columns:1fr}}
+
+/* why */
+.why{background:var(--blush);padding-block:clamp(3.5rem,8vw,6rem)}
+.why__in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(1.5rem,5vw,4.5rem)}
+.why ul{display:grid;gap:0}
+.why li{padding:1.3rem 0;border-top:1.5px solid rgba(46,22,39,.25)}
+.why li:last-child{border-bottom:1.5px solid rgba(46,22,39,.25)}
+.why h3{font:500 1.4rem/1.3 var(--head)}
+.why p{margin-top:.3rem;color:#56394D;max-width:54ch}
+@media (max-width:860px){.why__in{grid-template-columns:1fr}}
+
+/* steps */
+.steps{padding-block:clamp(3.5rem,8vw,6rem)}
+.steps ol{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;margin-top:2.2rem;counter-reset:s}
+.steps li{counter-increment:s}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:52px;height:52px;border-radius:50%;border:1.5px solid var(--brass);font:500 1.5rem/1 var(--head);color:var(--rose);margin-bottom:1rem}
+.steps h3{font-size:1.2rem;line-height:1.3;margin-bottom:.35rem}
+.steps p{color:var(--soft);max-width:36ch}
+.steps__cta{margin-top:2.2rem}
+@media (max-width:860px){.steps ol{grid-template-columns:1fr;gap:1.7rem}}
+
+/* gallery */
+.gallery{padding-bottom:clamp(3.5rem,8vw,6rem)}
+.gallery__head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:.5rem 2rem}
+.gallery__head a{font-weight:700;text-underline-offset:5px;text-decoration-color:var(--rose);text-decoration-thickness:2px}
+.tiles{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(.6rem,1.4vw,1rem);margin-top:2rem}
+.tile{position:relative;grid-column:span 4;aspect-ratio:1;border-radius:16px;overflow:hidden;display:flex;align-items:flex-end;padding:1rem 1.1rem;color:var(--ink)}
+.tile:nth-child(1),.tile:nth-child(6){grid-column:span 5}
+.tile:nth-child(2),.tile:nth-child(5){grid-column:span 3}
+.tile:nth-child(1),.tile:nth-child(2),.tile:nth-child(3),.tile:nth-child(4),.tile:nth-child(5),.tile:nth-child(6){aspect-ratio:auto;min-height:clamp(180px,24vw,300px)}
+.tile:nth-child(6n+1){background:linear-gradient(150deg,#F3DCE2,#D9A6B8)}
+.tile:nth-child(6n+2){background:linear-gradient(150deg,#E9D8C4,#C9A877)}
+.tile:nth-child(6n+3){background:linear-gradient(150deg,#D7C3D6,#9C7396)}
+.tile:nth-child(6n+4){background:linear-gradient(150deg,#C9A1B2,#8B4A69);color:#fff}
+.tile:nth-child(6n+5){background:linear-gradient(150deg,#5B2C4F,#2E1627);color:#fff}
+.tile:nth-child(6n){background:linear-gradient(150deg,#F6E6EA,#E2B7C4)}
+.tile::before{content:"";position:absolute;inset:0;background:linear-gradient(118deg,rgba(255,255,255,0) 40%,rgba(255,255,255,.28) 48%,rgba(255,255,255,0) 56%)}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tile span{position:relative;font-weight:700}
+@media (max-width:700px){
+  .tiles{grid-template-columns:1fr 1fr}
+  .tiles .tile{grid-column:auto;min-height:0;aspect-ratio:4/5}
+}
+
+/* faq */
+.faq{background:var(--paper);border-block:1px solid var(--blush);padding-block:clamp(3.5rem,8vw,6rem)}
+.faq__in{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(1.5rem,5vw,4rem)}
+.faq details{border-top:1.5px solid var(--ink)}
+.faq details:last-child{border-bottom:1.5px solid var(--ink)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:1rem;padding:1.1rem 0;font-weight:700;font-size:1.1rem;line-height:1.35}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:400 1.7rem/1 var(--head);color:var(--rose)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding-bottom:1.2rem;max-width:60ch;color:var(--soft)}
+@media (max-width:860px){.faq__in{grid-template-columns:1fr}}
+
+/* find */
+.find{padding-block:clamp(3.5rem,8vw,6rem)}
+.find__in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.find address{font-style:normal;margin-top:1.5rem;font-size:1.12rem;line-height:1.55}
+.find address p+p{margin-top:.9rem}
+.find address a{text-decoration-color:var(--rose);text-underline-offset:4px}
+.find__btns{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.7rem}
+.find__map{border-radius:18px;overflow:hidden;border:1px solid var(--blush);background:var(--blush)}
+.find__map iframe{width:100%;aspect-ratio:4/3;border:0}
+@media (max-width:860px){.find__in{grid-template-columns:1fr}}
+
+/* closing band */
+.cta{background:var(--ink);color:var(--powder);text-align:center;padding-block:clamp(3rem,7vw,5rem)}
+.cta .h2{margin-inline:auto;max-width:18ch}
+.cta__btns{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem;margin-top:1.8rem}
+
+.foot{background:var(--ink);color:#B9A3B1;font-size:.9rem;padding-block:1.4rem;border-top:1px solid rgba(235,205,213,.18)}
+.foot__in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 2rem}
+.foot a{color:var(--powder)}
+
+.dock{display:none}
+@media (max-width:760px){
+  body{padding-bottom:78px}
+  .dock{display:grid;grid-template-columns:1fr 1.5fr;gap:.6rem;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:.7rem 1rem calc(.7rem + env(safe-area-inset-bottom));background:var(--paper);border-top:1px solid var(--blush);box-shadow:0 -10px 26px rgba(46,22,39,.12)}
+  .dock .btn{width:100%;min-height:48px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<p class="demo" id="demo" data-ui="demo" hidden></p>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#">Impress<small>BEAUTY CLUB</small></a>
+    <nav class="top__nav">
+      <a href="#services" data-ui="navServices"></a>
+      <a href="#why" data-ui="navWhy"></a>
+      <a href="#gallery" data-ui="navGallery"></a>
+      <a href="#faq" data-ui="navFaq"></a>
+      <a href="#find" data-ui="navFind"></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="ka" aria-label="ქართული">KA</button>
+      <button type="button" data-lang="en" aria-label="English">EN</button>
+      <button type="button" data-lang="ru" aria-label="Русский">RU</button>
+    </div>
+    <a class="btn btn--rose btn--sm" data-href="booking" target="_blank" rel="noopener" data-ui="bookShort"></a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero__in">
+      <div>
+        <p class="status" id="status"><i aria-hidden="true"></i><span></span></p>
+        <h1>Impress<br>Beauty Club</h1>
+        <p class="hero__kind" data-cfg="kind"></p>
+        <p class="hero__lede" data-cfg="tagline"></p>
+        <div class="hero__cta">
+          <a class="btn btn--rose" data-href="booking" target="_blank" rel="noopener" data-ui="book"></a>
+          <a class="btn btn--line" data-href="whatsapp" target="_blank" rel="noopener" data-ui="writeWa"></a>
+        </div>
+      </div>
+      <div class="mirror">
+        <div class="mirror__glass" id="mirror"></div>
+        <a class="mirror__tag" data-href="reviews" target="_blank" rel="noopener"><b data-cfg="ratingNum"></b><span data-cfg="ratingText"></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="facts">
+    <dl class="wrap facts__in">
+      <div><dt data-ui="fHours"></dt><dd id="hoursText"></dd></div>
+      <div><dt data-ui="fAddress"></dt><dd data-cfg="addressShort"></dd></div>
+      <div><dt data-ui="fPhone"></dt><dd><a data-href="tel" data-cfg="phone"></a></dd></div>
+      <div><dt data-ui="fLang"></dt><dd data-ui="fLangVal"></dd></div>
+    </dl>
+  </section>
+
+  <section id="services" class="services">
+    <div class="wrap">
+      <h2 class="h2" data-ui="hServices"></h2>
+      <p class="lede" data-ui="servicesLede"></p>
+      <div class="tabs" role="tablist" id="tabs"></div>
+      <div class="panel" role="tabpanel" id="panel">
+        <ul class="menu" id="menu"></ul>
+        <div class="panel__foot">
+          <p data-ui="priceNote"></p>
+          <a class="btn btn--rose" data-href="booking" target="_blank" rel="noopener" data-ui="book"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why" class="why">
+    <div class="wrap why__in">
+      <h2 class="h2" data-ui="hWhy"></h2>
+      <ul id="whyList"></ul>
+    </div>
+  </section>
+
+  <section class="steps">
+    <div class="wrap">
+      <h2 class="h2" data-ui="hSteps"></h2>
+      <ol>
+        <li><h3 data-ui="s1t"></h3><p data-ui="s1d"></p></li>
+        <li><h3 data-ui="s2t"></h3><p data-ui="s2d"></p></li>
+        <li><h3 data-ui="s3t"></h3><p data-ui="s3d"></p></li>
+      </ol>
+      <p class="steps__cta"><a class="btn btn--line" data-href="booking" target="_blank" rel="noopener" data-ui="book"></a></p>
+    </div>
+  </section>
+
+  <section id="gallery" class="gallery">
+    <div class="wrap">
+      <div class="gallery__head">
+        <h2 class="h2" data-ui="hGallery"></h2>
+        <a id="instaLink" target="_blank" rel="noopener" data-ui="moreInsta" hidden></a>
+      </div>
+      <ul class="tiles" id="tiles"></ul>
+    </div>
+  </section>
+
+  <section id="faq" class="faq">
+    <div class="wrap faq__in">
+      <h2 class="h2" data-ui="hFaq"></h2>
+      <div id="faqList"></div>
+    </div>
+  </section>
+
+  <section id="find" class="find">
+    <div class="wrap find__in">
+      <div>
+        <h2 class="h2" data-ui="hFind"></h2>
+        <address>
+          <p data-cfg="addressFull"></p>
+          <p><a data-href="tel" data-cfg="phone"></a></p>
+          <p id="hoursText2"></p>
+        </address>
+        <div class="find__btns">
+          <a class="btn btn--rose" data-href="route" target="_blank" rel="noopener" data-ui="route"></a>
+          <a class="btn btn--line" data-href="tel" data-ui="call"></a>
+        </div>
+      </div>
+      <div class="find__map"><iframe id="map" title="Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2 class="h2" data-ui="ctaTitle"></h2>
+      <div class="cta__btns">
+        <a class="btn btn--rose" data-href="booking" target="_blank" rel="noopener" data-ui="book"></a>
+        <a class="btn btn--light" data-href="whatsapp" target="_blank" rel="noopener" data-ui="writeWa"></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>© <span id="year"></span> Impress Beauty Club</p>
+    <p><a data-href="tel" data-cfg="phone"></a></p>
+  </div>
+</footer>
+
+<div class="dock">
+  <a class="btn btn--line" data-href="tel" data-ui="call"></a>
+  <a class="btn btn--rose" data-href="booking" target="_blank" rel="noopener" data-ui="book"></a>
+</div>
+
+<script>
+/* ============================================================
+   სალონის მონაცემები: ყველაფერი აქ იცვლება.
+   სამენოვანი ველი: {ka:"…", en:"…", ru:"…"}
+   ============================================================ */
+const CONFIG = {
+  demo: true,                    // false = ზედა „სადემონსტრაციო“ ზოლი ქრება
+  defaultLang: "ka",
+  kind: {ka:"სილამაზის სალონი ვაკეში", en:"Beauty salon in Vake, Tbilisi", ru:"Салон красоты в Ваке, Тбилиси"},
+  tagline: {
+    ka:"თმა, ფრჩხილები, სახის მოვლა და ეპილაცია ერთ მყუდრო სივრცეში. მოდი, ყავა ჩვენზეა.",
+    en:"Hair, nails, facials and waxing in one cosy space. Come in, the coffee is on us.",
+    ru:"Волосы, ногти, уход за лицом и депиляция в одном уютном пространстве. Приходите, кофе за нами."
+  },
+  phone: "598 29 88 08",
+  phoneIntl: "+995598298808",
+  whatsapp: "995598298808",
+  booking: "https://n1354078.alteg.io/company/1292960/personal/menu",
+  instagram: "",                 // ჩასვი Instagram-ის ბმული და გალერეაში ღილაკი გამოჩნდება
+  reviews: "https://www.google.com/maps/place/?q=place_id:ChIJyebRYTpzREARblbDK64XFXI",
+  ratingNum: "4.9",
+  ratingText: {ka:"239 შეფასება Google-ზე", en:"239 reviews on Google", ru:"239 отзывов в Google"},
+  addressShort: {ka:"ნინო რამიშვილის II ჩიხი, 2", en:"2 Nino Ramishvili 2nd Dead End", ru:"2-й тупик Нино Рамишвили, 2"},
+  addressFull:  {ka:"თბილისი, ვაკე, ნინო რამიშვილის II ჩიხი, კორპუსი 2", en:"Building 2, Nino Ramishvili 2nd Dead End, Vake, Tbilisi", ru:"Тбилиси, Ваке, 2-й тупик Нино Рамишвили, корпус 2"},
+  lat: 41.7110368, lng: 44.7688066,
+  timeZone: "Asia/Tbilisi",
+  open: "10:00", close: "20:00",
+  currency: "₾",
+  heroPhoto: "",                 // სალონის ფოტოს ბმული სარკეში
+  categories: [                  // ფასები სანიმუშოა, შეცვალე ნამდვილით
+    {name:{ka:"ფრჩხილები", en:"Nails", ru:"Ногти"}, items:[
+      {price:50, name:{ka:"მანიკური გელ-ლაქით", en:"Manicure with gel polish", ru:"Маникюр с гель-лаком"}, desc:{ka:"კუტიკულის დამუშავება, ფორმა და დაფარვა", en:"Cuticle care, shaping and colour", ru:"Обработка кутикулы, форма и покрытие"}},
+      {price:70, name:{ka:"პედიკური გელ-ლაქით", en:"Pedicure with gel polish", ru:"Педикюр с гель-лаком"}, desc:{ka:"ტერფის მოვლა და დაფარვა", en:"Foot care and colour", ru:"Уход за стопами и покрытие"}},
+      {price:45, name:{ka:"მანიკური ჩვეულებრივი ლაქით", en:"Manicure with classic polish", ru:"Маникюр с обычным лаком"}, desc:{ka:"გელის გარეშე, ლაქების ფართო არჩევანი", en:"No gel, a wide choice of polishes", ru:"Без геля, большой выбор лаков"}},
+      {price:100, from:true, name:{ka:"ფრჩხილის დაგრძელება", en:"Nail extensions", ru:"Наращивание ногтей"}, desc:{ka:"გელით, სასურველ სიგრძეზე", en:"Gel, to the length you want", ru:"Гелем, на желаемую длину"}}
+    ]},
+    {name:{ka:"თმა", en:"Hair", ru:"Волосы"}, items:[
+      {price:60, from:true, name:{ka:"ქალის შეჭრა", en:"Women's haircut", ru:"Женская стрижка"}, desc:{ka:"დაბანა, შეჭრა და დავარცხნა", en:"Wash, cut and blow-dry", ru:"Мытьё, стрижка и укладка"}},
+      {price:40, from:true, name:{ka:"დავარცხნა", en:"Blow-dry and styling", ru:"Укладка"}, desc:{ka:"ყოველდღიური ან საღამოს ვარცხნილობა", en:"Everyday or evening styling", ru:"Повседневная или вечерняя"}},
+      {price:120, from:true, name:{ka:"შეღებვა", en:"Colouring", ru:"Окрашивание"}, desc:{ka:"ერთი ტონი, ძირები ან რთული შეღებვა", en:"Single tone, roots or complex colour", ru:"В один тон, корни или сложное окрашивание"}},
+      {price:200, from:true, name:{ka:"კერატინი", en:"Keratin treatment", ru:"Кератин"}, desc:{ka:"გასწორება და აღდგენა", en:"Smoothing and repair", ru:"Выпрямление и восстановление"}}
+    ]},
+    {name:{ka:"სახე", en:"Face", ru:"Лицо"}, items:[
+      {price:120, from:true, name:{ka:"სახის წმენდა", en:"Facial cleansing", ru:"Чистка лица"}, desc:{ka:"კანის ტიპის მიხედვით", en:"Matched to your skin type", ru:"По типу кожи"}},
+      {price:20, name:{ka:"წარბის კორექცია", en:"Brow shaping", ru:"Коррекция бровей"}, desc:{ka:"ფორმა პინცეტით ან ძაფით", en:"Tweezers or threading", ru:"Пинцетом или нитью"}},
+      {price:60, name:{ka:"წარბის ლამინირება", en:"Brow lamination", ru:"Ламинирование бровей"}, desc:{ka:"ფორმა და შეღებვა", en:"Shape and tint", ru:"Форма и окрашивание"}},
+      {price:70, name:{ka:"წამწამის ლამინირება", en:"Lash lift", ru:"Ламинирование ресниц"}, desc:{ka:"აწევა და შეღებვა", en:"Lift and tint", ru:"Подкручивание и окрашивание"}}
+    ]},
+    {name:{ka:"ეპილაცია", en:"Waxing", ru:"Депиляция"}, items:[
+      {price:50, name:{ka:"ფეხები მთლიანად", en:"Full legs", ru:"Ноги полностью"}, desc:{ka:"ცვილით", en:"Wax", ru:"Воском"}},
+      {price:30, name:{ka:"ხელები მთლიანად", en:"Full arms", ru:"Руки полностью"}, desc:{ka:"ცვილით", en:"Wax", ru:"Воском"}},
+      {price:15, name:{ka:"იღლიები", en:"Underarms", ru:"Подмышки"}, desc:{ka:"ცვილით", en:"Wax", ru:"Воском"}},
+      {price:40, from:true, name:{ka:"ბიკინი", en:"Bikini", ru:"Бикини"}, desc:{ka:"კლასიკური ან ღრმა", en:"Classic or deep", ru:"Классическое или глубокое"}}
+    ]}
+  ],
+  why: [
+    {t:{ka:"4.9 ვარსკვლავი, 239 შეფასება", en:"4.9 stars from 239 reviews", ru:"4,9 звезды, 239 отзывов"},
+     d:{ka:"სტუმრები ყველაზე ხშირად ზუსტ ნამუშევარს, სისუფთავეს და თბილ დახვედრას აღნიშნავენ.", en:"Guests most often mention precise work, a spotless space and a warm welcome.", ru:"Гости чаще всего отмечают аккуратную работу, чистоту и тёплый приём."}},
+    {t:{ka:"ყველაფერი ერთ ვიზიტში", en:"Everything in one visit", ru:"Всё за один визит"},
+     d:{ka:"მანიკური, თმა, სახე და ეპილაცია ერთ ადგილას. ქალაქში სირბილი აღარ მოგიწევს.", en:"Manicure, hair, face and waxing under one roof, so you don't run across town.", ru:"Маникюр, волосы, лицо и депиляция в одном месте. Не нужно ездить по городу."}},
+    {t:{ka:"ყოველდღე, 10:00–20:00", en:"Every day, 10:00–20:00", ru:"Ежедневно, 10:00–20:00"},
+     d:{ka:"შაბათ-კვირასაც ვმუშაობთ. დროს ონლაინ ირჩევ, ზარის გარეშე.", en:"Weekends included. Pick your time online, no phone call needed.", ru:"Работаем и в выходные. Время выбираете онлайн, без звонков."}},
+    {t:{ka:"ქართულად, ინგლისურად, რუსულად", en:"Georgian, English, Russian", ru:"На грузинском, английском и русском"},
+     d:{ka:"სამივე ენაზე გაგიგებთ, ასე რომ სასურველი შედეგის ახსნა მარტივია.", en:"We speak all three, so explaining the look you want is easy.", ru:"Говорим на всех трёх, так что объяснить желаемый результат легко."}}
+  ],
+  gallery: [   // src: ფოტოს ბმული ან ""
+    {src:"", label:{ka:"მანიკური", en:"Manicure", ru:"Маникюр"}},
+    {src:"", label:{ka:"პედიკური", en:"Pedicure", ru:"Педикюр"}},
+    {src:"", label:{ka:"შეღებვა", en:"Colour", ru:"Окрашивание"}},
+    {src:"", label:{ka:"ვარცხნილობა", en:"Styling", ru:"Укладка"}},
+    {src:"", label:{ka:"წარბები", en:"Brows", ru:"Брови"}},
+    {src:"", label:{ka:"ინტერიერი", en:"The salon", ru:"Интерьер"}}
+  ],
+  faq: [
+    {q:{ka:"როგორ ჩავეწერო?", en:"How do I book?", ru:"Как записаться?"},
+     a:{ka:"ონლაინ, ღილაკით „ონლაინ ჩაწერა“: ირჩევ მომსახურებას, სპეციალისტს და დროს. შეგიძლია WhatsApp-ზეც მოგვწერო ან დაგვირეკო.", en:"Online with the “Book online” button: pick a service, a specialist and a time. You can also message us on WhatsApp or call.", ru:"Онлайн по кнопке «Записаться онлайн»: выбираете услугу, мастера и время. Можно также написать в WhatsApp или позвонить."}},
+    {q:{ka:"ვიზიტის გადატანა ან გაუქმება შეიძლება?", en:"Can I reschedule or cancel?", ru:"Можно перенести или отменить визит?"},
+     a:{ka:"რა თქმა უნდა. გთხოვთ, წინა დღით მაინც შეგვატყობინოთ, რომ დრო სხვას დავუთმოთ.", en:"Of course. Please let us know at least a day ahead so we can offer the slot to someone else.", ru:"Конечно. Пожалуйста, предупредите хотя бы за день, чтобы мы предложили время другому гостю."}},
+    {q:{ka:"ბარათით გადახდა შეიძლება?", en:"Do you take cards?", ru:"Можно оплатить картой?"},
+     a:{ka:"დიახ, ვიღებთ ბარათსაც და ნაღდ ფულსაც.", en:"Yes, we take both cards and cash.", ru:"Да, принимаем и карты, и наличные."}},
+    {q:{ka:"გელის გარეშე ლაქი გაქვთ?", en:"Do you offer non-gel polish?", ru:"Есть ли обычный лак без геля?"},
+     a:{ka:"დიახ, ჩვეულებრივი ლაქების კარგი არჩევანი გვაქვს და მათთან მუშაობაც გვიყვარს.", en:"Yes, we keep a good range of classic polishes and enjoy working with them.", ru:"Да, у нас хороший выбор обычных лаков, и мы любим с ними работать."}},
+    {q:{ka:"როგორ მოგაგნოთ?", en:"How do I find you?", ru:"Как вас найти?"},
+     a:{ka:"ვაკეში ვართ, ნინო რამიშვილის II ჩიხში, კორპუსი 2. ღილაკი „გზის მითითება“ პირდაპირ კართან მოგიყვანს.", en:"We're in Vake, at Building 2, Nino Ramishvili 2nd Dead End. The “Get directions” button brings you to the door.", ru:"Мы в Ваке, 2-й тупик Нино Рамишвили, корпус 2. Кнопка «Проложить маршрут» приведёт прямо к двери."}}
+  ]
+};
+
+const UI = {
+  ka:{demo:"სადემონსტრაციო ვერსია. ფასები და ფოტოები სანიმუშოა და თქვენით შეიცვლება.",
+      navServices:"მომსახურება",navWhy:"რატომ ჩვენ",navGallery:"ნამუშევრები",navFaq:"კითხვები",navFind:"მისამართი",
+      book:"ონლაინ ჩაწერა",bookShort:"ჩაწერა",call:"დარეკვა",writeWa:"მოგვწერე WhatsApp-ზე",
+      fHours:"სამუშაო საათები",fAddress:"მისამართი",fPhone:"ტელეფონი",fLang:"ენები",fLangVal:"ქართული, English, Русский",
+      everyday:"ყოველდღე",openNow:"ახლა ღიაა, {t}-მდე",closedNow:"ახლა დაკეტილია, იხსნება {t}-ზე",from:"-დან",
+      hServices:"მომსახურება და ფასები",servicesLede:"აირჩიე მიმართულება და ნახე, რა ღირს. ჩაწერას ერთი წუთი სჭირდება.",
+      priceNote:"საბოლოო ფასი დამოკიდებულია სიგრძესა და სირთულეზე.",
+      hWhy:"რატომ ირჩევენ Impress-ს",hSteps:"როგორ ჩაეწერო",hGallery:"ნამუშევრები",hFaq:"ხშირი კითხვები",hFind:"როგორ მოგვაგნო",
+      s1t:"აირჩიე მომსახურება",s1d:"მანიკური, თმა, სახე ან რამდენიმე ერთად. ფასს წინასწარ ხედავ.",
+      s2t:"აირჩიე სპეციალისტი და დრო",s2d:"ხედავ თავისუფალ საათებს და იღებ შენთვის მოსახერხებელს.",
+      s3t:"მოდი და დაისვენე",s3d:"დანიშნულ დროს გელოდებით. ყავა ან ჩაი ჩვენზეა.",
+      moreInsta:"მეტი Instagram-ზე",route:"გზის მითითება",ctaTitle:"იპოვე დრო საკუთარი თავისთვის",
+      desc:"თმა, ფრჩხილები, სახის მოვლა და ეპილაცია. ონლაინ ჩაწერა."},
+  en:{demo:"Demo version. Prices and photos are samples and will be replaced with yours.",
+      navServices:"Services",navWhy:"Why us",navGallery:"Our work",navFaq:"FAQ",navFind:"Location",
+      book:"Book online",bookShort:"Book",call:"Call",writeWa:"Message us on WhatsApp",
+      fHours:"Opening hours",fAddress:"Address",fPhone:"Phone",fLang:"Languages",fLangVal:"ქართული, English, Русский",
+      everyday:"Every day",openNow:"Open now, until {t}",closedNow:"Closed now, opens at {t}",from:"from ",
+      hServices:"Services and prices",servicesLede:"Pick a category and see what it costs. Booking takes about a minute.",
+      priceNote:"The final price depends on length and complexity.",
+      hWhy:"Why guests choose Impress",hSteps:"How to book",hGallery:"Our work",hFaq:"Common questions",hFind:"Find us",
+      s1t:"Pick a service",s1d:"Nails, hair, face or several at once. You see the price up front.",
+      s2t:"Pick a specialist and a time",s2d:"See the free slots and take the one that suits you.",
+      s3t:"Come in and relax",s3d:"We'll be ready at your time. Coffee or tea is on us.",
+      moreInsta:"More on Instagram",route:"Get directions",ctaTitle:"Make time for yourself",
+      desc:"Hair, nails, facials and waxing. Book online."},
+  ru:{demo:"Демо-версия. Цены и фото приведены для примера и будут заменены вашими.",
+      navServices:"Услуги",navWhy:"Почему мы",navGallery:"Работы",navFaq:"Вопросы",navFind:"Адрес",
+      book:"Записаться онлайн",bookShort:"Запись",call:"Позвонить",writeWa:"Написать в WhatsApp",
+      fHours:"Часы работы",fAddress:"Адрес",fPhone:"Телефон",fLang:"Языки",fLangVal:"ქართული, English, Русский",
+      everyday:"Ежедневно",openNow:"Сейчас открыто, до {t}",closedNow:"Сейчас закрыто, откроется в {t}",from:"от ",
+      hServices:"Услуги и цены",servicesLede:"Выберите направление и посмотрите цены. Запись занимает минуту.",
+      priceNote:"Итоговая цена зависит от длины и сложности.",
+      hWhy:"Почему выбирают Impress",hSteps:"Как записаться",hGallery:"Наши работы",hFaq:"Частые вопросы",hFind:"Как нас найти",
+      s1t:"Выберите услугу",s1d:"Ногти, волосы, лицо или несколько сразу. Цена видна заранее.",
+      s2t:"Выберите мастера и время",s2d:"Вы видите свободные окна и берёте удобное.",
+      s3t:"Приходите и отдыхайте",s3d:"Ждём вас в назначенное время. Кофе или чай за нами.",
+      moreInsta:"Больше в Instagram",route:"Проложить маршрут",ctaTitle:"Найдите время для себя",
+      desc:"Волосы, ногти, уход за лицом и депиляция. Онлайн-запись."}
+};
+
+const LANGS = ["ka","en","ru"];
+let lang = CONFIG.defaultLang, cat = 0;
+(function(){
+  const q = new URLSearchParams(location.search).get("lang");
+  let saved = null;
+  try { saved = localStorage.getItem("lang"); } catch(e){}
+  const nav = (navigator.language || "").slice(0,2);
+  for (const c of [q, saved, nav]) if (LANGS.includes(c)) { lang = c; return; }
+})();
+
+const t = v => (v && typeof v === "object") ? (v[lang] || v.ka || "") : (v ?? "");
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+const HREF = {
+  booking: CONFIG.booking, tel: "tel:" + CONFIG.phoneIntl, reviews: CONFIG.reviews,
+  whatsapp: "https://wa.me/" + CONFIG.whatsapp,
+  route: "https://www.google.com/maps/dir/?api=1&destination=" + CONFIG.lat + "," + CONFIG.lng
+};
+const toMin = s => { const [h,m] = s.split(":").map(Number); return h*60+m; };
+
+function status(){
+  const now = new Intl.DateTimeFormat("en-GB",{timeZone:CONFIG.timeZone,hour:"2-digit",minute:"2-digit",hour12:false}).format(new Date());
+  const m = toMin(now), isOpen = m >= toMin(CONFIG.open) && m < toMin(CONFIG.close);
+  const box = document.getElementById("status");
+  box.classList.toggle("is-closed", !isOpen);
+  box.querySelector("span").textContent = (isOpen ? UI[lang].openNow : UI[lang].closedNow).replace("{t}", isOpen ? CONFIG.close : CONFIG.open);
+}
+function price(s){
+  const p = s.price + " " + CONFIG.currency;
+  if (!s.from) return p;
+  return lang === "ka" ? p + UI.ka.from : UI[lang].from + p;
+}
+function renderMenu(){
+  document.querySelectorAll("#tabs button").forEach((b,i) => b.setAttribute("aria-selected", i === cat));
+  const menu = document.getElementById("menu"); menu.replaceChildren();
+  CONFIG.categories[cat].items.forEach(s => {
+    const li = el("li");
+    li.append(el("span","menu__name",t(s.name)), el("span","menu__price",price(s)), el("span","menu__desc",t(s.desc)));
+    menu.append(li);
+  });
+}
+function render(){
+  const u = UI[lang];
+  document.documentElement.lang = lang;
+  document.title = "Impress Beauty Club | " + t(CONFIG.kind);
+  document.querySelector('meta[name="description"]').content = "Impress Beauty Club. " + t(CONFIG.addressFull) + ". " + u.desc;
+  document.querySelectorAll("[data-ui]").forEach(n => n.textContent = u[n.dataset.ui]);
+  document.querySelectorAll("[data-cfg]").forEach(n => n.textContent = t(CONFIG[n.dataset.cfg]));
+  document.querySelectorAll("[data-href]").forEach(n => n.href = HREF[n.dataset.href]);
+  document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));
+  document.getElementById("demo").hidden = !CONFIG.demo;
+  const hours = u.everyday + ", " + CONFIG.open + "–" + CONFIG.close;
+  document.getElementById("hoursText").textContent = hours;
+  document.getElementById("hoursText2").textContent = hours;
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const insta = document.getElementById("instaLink");
+  insta.hidden = !CONFIG.instagram; if (CONFIG.instagram) insta.href = CONFIG.instagram;
+
+  const mirror = document.getElementById("mirror");
+  if (CONFIG.heroPhoto && !mirror.firstChild) { const i = el("img"); i.src = CONFIG.heroPhoto; i.alt = "Impress Beauty Club"; mirror.append(i); }
+
+  const tabs = document.getElementById("tabs"); tabs.replaceChildren();
+  CONFIG.categories.forEach((c,i) => {
+    const b = el("button",null,t(c.name)); b.type = "button"; b.setAttribute("role","tab");
+    b.addEventListener("click", () => { cat = i; renderMenu(); });
+    tabs.append(b);
+  });
+  renderMenu();
+
+  const why = document.getElementById("whyList"); why.replaceChildren();
+  CONFIG.why.forEach(w => { const li = el("li"); li.append(el("h3",null,t(w.t)), el("p",null,t(w.d))); why.append(li); });
+
+  const tiles = document.getElementById("tiles"); tiles.replaceChildren();
+  CONFIG.gallery.forEach(g => {
+    const li = el("li","tile");
+    if (g.src) { const i = el("img"); i.src = g.src; i.alt = t(g.label); i.loading = "lazy"; li.append(i); }
+    li.append(el("span",null,t(g.label))); tiles.append(li);
+  });
+
+  const faq = document.getElementById("faqList"); faq.replaceChildren();
+  CONFIG.faq.forEach(f => { const d = el("details"); d.append(el("summary",null,t(f.q)), el("p",null,t(f.a))); faq.append(d); });
+
+  const map = document.getElementById("map");
+  const src = "https://maps.google.com/maps?q=" + CONFIG.lat + "," + CONFIG.lng + "&z=17&hl=" + lang + "&output=embed";
+  if (map.dataset.src !== src) { map.src = src; map.dataset.src = src; }
+  status();
+}
+document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click", () => {
+  lang = b.dataset.lang;
+  try { localStorage.setItem("lang", lang); } catch(e){}
+  render();
+}));
+render();
+setInterval(status, 60000);
+</script>
+</body>
+</html>
